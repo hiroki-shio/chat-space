@@ -13,6 +13,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false|
+|group_member|string|null: false|
 ### Association
 - has_many :users,through:groups_user
 
