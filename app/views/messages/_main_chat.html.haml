@@ -1,0 +1,45 @@
+.chat-main
+  .chat-main__group-info
+    .main-chat__leftbox
+      %h2.chat-main__group サッカー
+      %ul.member-list
+        Member : 
+        %li.member
+          hiroki
+        
+
+    = link_to "#", class: "Contents__btn3" do
+      Edit
+      
+  .chat-main__message-list
+    %ul.chat-main__member 
+      %span
+        hiroki  
+      %li.chat-main__date
+        2020/08/18(Tue) 08:30:00   
+    %p.chat-main__text 
+      おはよう！
+
+    %ul.chat-main__member 
+      %span
+        hiroki  
+      %li.chat-main__date
+        2020/08/18(Tue) 18:35:00   
+    %p.chat-main__text 
+      こんばんは！   
+
+
+
+  .chat-main__message-form
+    %form.new-message
+      .form-contents
+        %input.input-text(placeholder="type a message" type="text")
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input.Hidden{ type: "file" }
+          
+      
+      
+      %input.submit-btn(value="Send" type="submit")
+
+    
