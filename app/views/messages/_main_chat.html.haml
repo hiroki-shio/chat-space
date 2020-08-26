@@ -1,45 +1,40 @@
 .chat-main
-  .chat-main__group-info
-    .main-chat__leftbox
-      %h2.chat-main__group サッカー
-      %ul.member-list
+  .group-info
+    .group-info__leftbox
+      %h2.group-info__group サッカー
+      %ul.group-info__member-list
         Member : 
-        %li.member
+        %li.group-info__member
           hiroki
-        
-
     = link_to "#", class: "Contents__btn3" do
       Edit
       
-  .chat-main__message-list
-    %ul.chat-main__member 
-      %span
-        hiroki  
-      %li.chat-main__date
+  .message-list
+    %ul.message-list__member      
+      %span.message-list--fat 
+        hiroki 
+      %p.message-list__date
         2020/08/18(Tue) 08:30:00   
-    %p.chat-main__text 
+    %p.message-list__text 
       おはよう！
 
-    %ul.chat-main__member 
-      %span
+    %ul.message-list__member 
+      %span.message-list--fat 
         hiroki  
-      %li.chat-main__date
+      %li.message-list__date
         2020/08/18(Tue) 18:35:00   
-    %p.chat-main__text 
+    %p.message-list__text 
       こんばんは！   
 
 
-
-  .chat-main__message-form
+  .message-form
     %form.new-message
-      .form-contents
-        %input.input-text(placeholder="type a message" type="text")
-        %label{class: "input-box__image"}
+      .contents
+        %input.contents__text(placeholder="type a message" type="text")
+        %label{class: "contents__image"}
           = icon('fas', 'image')
-          %input.Hidden{ type: "file" }
-          
-      
-      
+          %input.contents__Hidden{ type: "file" }
+            
       %input.submit-btn(value="Send" type="submit")
 
     
