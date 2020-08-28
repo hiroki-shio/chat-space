@@ -4,17 +4,22 @@
       %p.top-items__name 
         = current_user.name
       .top-items__icons 
-        = link_to "#", class: "Contents__btn1" do
+        = link_to new_group_path, class: "Contents__btn1" do
           <i class='far fa-edit'></i>
         = link_to edit_user_path(current_user), class: "Contents__btn2" do
           <i class='fas fa-cog'></i>
           
-  .group-list
-    .Group
-      = link_to '#' do
-        %h2.group-list__name techcamp
-        %p.group-list__text まだメッセージがありません
-        %h2.group-list__name サッカー
-        %p.group-list__text こんばんは！
+  .group-list  
+    - current_user.groups.each do |group|
+      .Group
+        = link_to '#' do
+          %h2.group-list__name
+            = group.name
+          %p.group-list__text 
+            まだメッセージがありません
+          %h2.group-list__name
+            = group.name
+          %p.group-list__text 
+            こんばんは！
     
     
