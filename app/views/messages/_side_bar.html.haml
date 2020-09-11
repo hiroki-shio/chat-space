@@ -9,17 +9,17 @@
         = link_to edit_user_path(current_user), class: "Contents__btn2" do
           <i class='fas fa-cog'></i>
           
-  .group-list  
+  .group-list
     - current_user.groups.each do |group|
-      .Group
-        = link_to '#' do
+      .group
+        = link_to group_messages_path(group) , class:"hoge" do
           %h2.group-list__name
             = group.name
           %p.group-list__text 
-            まだメッセージがありません
+            = group.show_last_message
           %h2.group-list__name
             = group.name
           %p.group-list__text 
-            こんばんは！
+            = group.show_last_message
     
     

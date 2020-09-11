@@ -1,40 +1,46 @@
 .chat-main
-  .group-info
-    .group-info__leftbox
-      %h2.group-info__group サッカー
+  
+  .group-info   
+    .group-info__leftbox     
+      %h2.group-info__group        
+        = @group.name
       %ul.group-info__member-list
         Member : 
-        %li.group-info__member
-          hiroki
-    = link_to "#", class: "Contents__btn3" do
+        - @group.users.each do |user|
+          .group-info__member-list
+            =user.name
+        //%li.group-info__member
+          
+            
+        
+          
+          
+          
+    = link_to new_group_path, class: "Contents__btn3" do
       Edit
       
-  .message-list
-    %ul.message-list__member      
-      %span.message-list--fat 
-        hiroki 
-      %p.message-list__date
-        2020/08/18(Tue) 08:30:00   
-    %p.message-list__text 
-      おはよう！
-
-    %ul.message-list__member 
-      %span.message-list--fat 
-        hiroki  
-      %li.message-list__date
-        2020/08/18(Tue) 18:35:00   
-    %p.message-list__text 
-      こんばんは！   
+  .message-list 
+    .MessageField
+      = render @messages
+      .message-box
+        .message-list__member 
+        %span.message-list--fat 
+          hiorki
+        .message-list__date
+          2020/08/18(Tue) 18:35:00   
+      .message-list__text 
+        こんばんは！   
 
 
   .message-form
-    %form.new-message
+    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
       .contents
-        %input.contents__text(placeholder="type a message" type="text")
-        %label{class: "contents__image"}
-          = icon('fas', 'image')
-          %input.contents__Hidden{ type: "file" }
-            
-      %input.submit-btn(value="Send" type="submit")
+        = f.text_field :content, class: 'contents__text', placeholder: 'type a message'
+        = f.label :image, class: 'contents__image' do
+          = icon('fas', 'image', class: 'Form__icon')
+          = f.file_field :image, class: 'contents__Hidden'
+      = f.submit 'Send', class: 'submit-btn'
+
+      
 
     
