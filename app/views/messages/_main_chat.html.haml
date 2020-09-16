@@ -26,7 +26,7 @@
 
 
   .message-form
-    = form_with model: [@group, @message], html: {class: "new-message"}, local: true do |f|
+    = form_with model: [@group, @message], html: {class: "new-message"},  local: true do |f|
       .contents
         = f.text_field :content, class: 'contents__text', placeholder: 'type a message'
         = f.label :image, class: 'contents__image' do
