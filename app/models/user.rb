@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :messages
 
-  validates :name, presence: true, uniqueness: {case_sensitive: true}
+  validates :name, presence: true, uniqueness: { case_sensitive: true }
 end
